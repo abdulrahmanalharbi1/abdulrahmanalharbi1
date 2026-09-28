@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>FILMX prototype</title>
+<style>
+  @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSansArabic-Regular.ttf"); font-weight: 400; }
+  @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSansArabic-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSansArabic-SemiBold.ttf"); font-weight: 600; }
+  @font-face { font-family: "Plex"; src: url("fonts/IBMPlexSansArabic-Bold.ttf"); font-weight: 700; }
+  @font-face { font-family: "PlexLatin"; src: url("fonts/IBMPlexSans-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: "Ruqaa"; src: url("fonts/aref-ruqaa-arabic-700-normal.woff2"); font-weight: 700; }
+  @font-face { font-family: "Amiri"; src: url("fonts/amiri-arabic-700-normal.woff2"); font-weight: 700; }
+  @font-face { font-family: "Cormorant"; src: url("fonts/cormorant-garamond-latin-600-normal.woff2"); font-weight: 600; }
+  @font-face { font-family: "Cormorant"; src: url("fonts/cormorant-garamond-latin-700-normal.woff2"); font-weight: 700; }
+  html, body { margin: 0; background: #111; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="stage" width="1080" height="1920"></canvas>
+<script src="lib.js"></script>
+<script>
+  const p = new URLSearchParams(location.search).get('p') || 'p1';
+  document.write('<script src="../protos/' + p + '.js"><\/script>');
+</script>
+</body>
+</html>
