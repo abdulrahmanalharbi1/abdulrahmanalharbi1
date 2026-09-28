@@ -1,0 +1,323 @@
+{
+ "pledge": {
+  "claims": [
+   {
+    "claim": "FILMX free-replacement pledge: any PPF piece installed at FILMX that gets damaged for any reason is replaced completely free, unlimited pieces, for the whole warranty period, no material/labour/inspection fees (\"بدون شروط\"). Headline wording and short sub-line.",
+    "status": "confirmed",
+    "verbatim_ar": "أي قطعة PPF تتضرر… نستبدلها لك مجاناً\nكل قطعة من فيلم حماية الطلاء PPF ركّبناها في FILMX ثم تضررت — لأي سبب كان — نستبدلها لك مجاناً بالكامل، من لحظة تسليم سيارتك وطوال مدة الضمان، بلا شروط ولا استثناءات ولا حدّ لعدد القطع.",
+    "url": "https://filmx.capital/FreeReplacement",
+    "note": "Re-fetched live on 2026-09-28. Line 1 is the on-screen H1 of /FreeReplacement (JS object Je.headline, under the English eyebrow \"The FILMX Pledge\"). The '…' is a single U+2026 ellipsis, not three dots. Line 2 is the paragraph directly under the H1 (Je.promise). The same headline and paragraph appear on the home page (SSR h2: \"الاستبدال المجاني للقطع المتضررة — أي قطعة PPF تتضرر… نستبدلها لك مجاناً\") and in llms.txt. A shorter published sub-line from the home 'Why FILMX' card reads: \"أي قطعة PPF تتضرر نستبدلها مجاناً — بلا شروط، طوال مدة الضمان.\" (card title: \"استبدال مجاني\"). The home stat card reads \"استبدال PPF مجاناً\" / \"طوال مدة الضمان، وفق تعهّد FILMX.\" The fee wording is: \"لا رسوم خامة، ولا أجرة تركيب، ولا رسوم فحص أو فتح ملف.\" Unlimited is worded as: \"لا حدّ لعدد القطع ولا لعدد المرات طوال مدة الضمان.\" The duration line under the hero reads: \"يسري التعهّد من لحظة تسليم السيارة وحتى نهاية مدة ضمان FILMX المسجّلة برقم سيارتك.\" WORDING CAVEAT: all visible copy says \"بلا شروط\", not \"بدون شروط\". \"بدون شروط\" appears only in the meta keywords (\"ضمان بدون شروط\"), so typeset \"بلا شروط\". NUANCE: the FAQ says \"الشرط الوحيد بطبيعته أن تكون قطعة PPF مركّبة لدينا وسيارتك ضمن مدة ضمان FILMX المسجّلة برقمها.\" The client-rendered /Terms page also says \"ويظل الاستثناء الوحيد قائماً: أي تعديل أو محاولة إزالة للفيلم خارج مركز FILMX يُنهي التعهّد والضمان معاً\"."
+   },
+   {
+    "claim": "The pledge covers PPF only (not wraps/stickers, tint, caliper paint, car parts)",
+    "status": "confirmed",
+    "verbatim_ar": "التعهّد خاص بفيلم حماية الطلاء PPF وحده — لا يشمل الستيكرات والتغليف المخصص، ولا أفلام التظليل والعزل الحراري، ولا دهان الكاليبر، ولا أجزاء السيارة نفسها. تلك الخدمات يغطيها ضمان التركيب المعتاد.",
+    "url": "https://filmx.capital/FreeReplacement",
+    "note": "Shown word for word on /FreeReplacement (SSR and on-screen, Je.notCovered), on the home page and in llms.txt under '### ما لا يشمله'. A shorter version in the SSR intro and llms.txt reads: \"التعهّد خاص بـPPF ولا يشمل الستيكرات ولا التظليل.\" What is covered: \"الواجهة الأمامية: الكبوت، الصدام الأمامي، الشمعات، والمرايا.\" / \"بقية الهيكل: الأبواب، الرفارف، السقف، الصدام الخلفي، وحواف الأبواب.\" / \"كل أفلام PPF التي نركّبها بجميع أنواعها وسماكاتها — لامع أو مطفّي، تغطية كاملة أو جزئية.\""
+   },
+   {
+    "claim": "How to claim: WhatsApp a photo of the damaged piece + plate number",
+    "status": "confirmed",
+    "verbatim_ar": "أرسل صورة: راسلنا على واتساب بصورة لقطعة PPF المتضررة ورقم لوحة سيارتك — لا نموذج ولا أوراق.",
+    "url": "https://filmx.capital/FreeReplacement",
+    "note": "This is step 1 of 4 under 'كيف تطلب الاستبدال؟'. The step name is \"أرسل صورة\" and its text starts at \"راسلنا\". It is also in llms.txt ('### كيف يُطلب'). The short form in the SSR intro and llms.txt is \"تكفي صورة على واتساب ورقم اللوحة.\" The hero CTA button reads \"أرسل صورة القطعة على واتساب\". It opens wa.me/966553754507 with the pre-filled message \"مرحباً FILMX، عندي قطعة PPF متضررة وأرغب بالاستبدال المجاني.\" The published WhatsApp number is +966 55 375 4507. The remaining steps: \"نتحقق من ملفك\", \"موعد بأولوية\", \"التركيب والتسليم\" (ending \"دون أن تدفع ريالاً واحداً\")."
+   },
+   {
+    "claim": "FILMX frames the free replacement as exclusive to FILMX in Riyadh / on top of the manufacturer warranty",
+    "status": "confirmed",
+    "verbatim_ar": "هذه خدمة يقدّمها FILMX وحده في الرياض، وهي تعهّد منّا فوق ضمان المصنّع.",
+    "url": "https://filmx.capital/FreeReplacement",
+    "note": "The quoted line is from the on-screen FAQ answer. The SSR intro of /FreeReplacement and its llms.txt entry open with \"خدمة يقدّمها FILMX وحده في الرياض:\". The site says \"وحده\", not the word \"حصري\". The 'on top of manufacturer warranty' framing, from the section 'الفرق عن ضمان المصنّع' (also on home and in llms.txt), reads: \"أما الاستبدال المجاني فهو تعهّد من FILMX نفسها فوق ضمان المصنّع: يغطي الضرر الخارجي مهما كان سببه — وهو ما لا يغطيه أي ضمان مصنّع في العالم.\" The home page states the 'on top of' framing but not the Riyadh-only claim. The home hero meta line calls it \"تعهّد FILMX باستبدال أي قطعة من فيلم حماية الطلاء PPF تتضرر — لأي سبب — مجاناً وبلا شروط طوال مدة الضمان.\""
+   }
+  ]
+ },
+ "ppf": {
+  "claims": [
+   {
+    "claim": "PPF brands installed: XPEL and Ravoony, with XPEL listed first",
+    "status": "confirmed",
+    "verbatim_ar": "في FILMX نركّب أفلام حماية الطلاء من علامتين معتمدتين لدينا: XPEL وRavoony، بتقنية الإصلاح الذاتي، بتركيب داخلي معتمد وضمان مسجّل برقم السيارة.",
+    "url": "https://filmx.capital/PPF",
+    "note": "Re-fetched live on 2026-09-28 (HTTP 200). XPEL comes first everywhere on the site. The same two-brand line ('من علامتين معتمدتين لدينا: XPEL وRavoony') is also on /FAQ. /llms-full.txt, line 8, states the rule outright: 'الأفلام: نركّب أفلام حماية الطلاء من علامتين معتمدتين لدينا: XPEL وRavoony (XPEL أولاً دائماً).'"
+   },
+   {
+    "claim": "Ravoony is described with the exact wording «أفلام Ravoony الأصلية»",
+    "status": "confirmed",
+    "verbatim_ar": "ونركّب كذلك أفلام Ravoony الأصلية، وهي العلامة الثانية المعتمدة لدينا، وضمان المصنّع فيها حسب الفيلم المركّب.",
+    "url": "https://filmx.capital/FAQ",
+    "note": "From the FAQ answer 'هل FILMX وكيل معتمد لأفلام XPEL في السعودية؟'. /llms-full.txt, line 16, makes this the only permitted wording: 'الصيغة المسموحة «أفلام Ravoony الأصلية»'. The same rule forbids giving Ravoony a nationality, claiming agency or a warranty certificate in its name, publishing any manufacturer-warranty length for Ravoony (the 10 years belongs to XPEL only), or mentioning Ravoony outside PPF (no tint, heat insulation or caliper paint). The /PPF page itself only says 'XPEL وRavoony' and does not use «أفلام Ravoony الأصلية»."
+   },
+   {
+    "claim": "XPEL official manufacturer warranty of up to 10 years, registered to the car number",
+    "status": "confirmed",
+    "verbatim_ar": "ضمان XPEL الرسمي على أفلام الحماية يصل إلى 10 سنوات، مسجّل برقم السيارة",
+    "url": "https://filmx.capital/blog/best-car-protection-riyadh-2026",
+    "note": "This is a bullet in the post, with no final full stop. In the HTML, 'ضمان XPEL الرسمي' and '10 سنوات' are bold. Other exact wordings: /PPF has 'ضمان المصنّع حسب الفيلم المركّب — أفلام XPEL بضمان رسمي يصل إلى 10 سنوات.'; /FAQ has 'أفلام XPEL PPF تأتي بضمان رسمي من الشركة المصنّعة يصل إلى 10 سنوات' and 'عند التركيب في FILMX، تحصل على شهادة ضمان XPEL الرسمية مسجّلة برقم سيارتك.'; /llms-full.txt line 9 has 'أفلام XPEL بضمان رسمي يصل إلى 10 سنوات، مسجّل برقم السيارة'."
+   },
+   {
+    "claim": "The XPEL warranty is registered by VIN (رقم الهيكل) with the manufacturer",
+    "status": "confirmed",
+    "verbatim_ar": "عملياً في FILMX: يُسجَّل الضمان إلكترونياً برقم هيكل السيارة (VIN) لدى XPEL عند التسليم لا قبله، فيصبح قابلاً للتحقق منه لدى الشركة المصنّعة مباشرةً — لا ورقة تصدرها الورشة عن نفسها.",
+    "url": "https://filmx.capital/blog/best-car-protection-riyadh-2026",
+    "note": "Minor inconsistency across the site: the FAQ at the bottom of this same post says 'يُسجَّل ضمان XPEL رسمياً باسم مالك السيارة ورقم الهيكل'. The warranty post (/blog/ppf-warranty-what-it-covers-riyadh) says the manufacturer warranty 'يُسجَّل باسم السيارة ورقمها لا باسم المالك'. Do not put 'registered to the owner's name' on screen."
+   },
+   {
+    "claim": "30-day installation-quality warranty covering bubbles and defects",
+    "status": "confirmed",
+    "verbatim_ar": "كما نقدم ضمان 30 يوماً على جودة التركيب لمعالجة أي فقاعات أو عيوب.",
+    "url": "https://filmx.capital/FAQ",
+    "note": "From the FAQ answer 'ما هي الحالات التي لا يغطيها ضمان XPEL؟'. The best-car-protection post words it differently: 'ضمان 30 يوماً على جودة التركيب لمعالجة أي ملاحظات ما بعد الاستلام' (the first part is bold). /llms-full.txt line 9 has 'مع ضمان 30 يوماً على جودة التركيب'. The 30-day warranty is not mentioned on the /PPF page."
+   },
+   {
+    "claim": "Four full-coverage PPF packages: Gloss 7.5 mil (190µm), Gloss 8.5 mil (216µm), Gloss 10 mil (254µm, most requested), Matte 7.5 mil",
+    "status": "confirmed",
+    "verbatim_ar": "باقات حماية الطلاء PPF — تغطية كاملة (السعر بعد التواصل)\nPPF لمعان 7.5 مل | الباقة الأساسية | 7.5 مل (190μm)\nPPF لمعان 8.5 مل | سماكة أعلى | 8.5 مل (216μm)\nPPF لمعان 10 مل | الأكثر طلباً | 10 مل (254μm)\nPPF مطفّي 7.5 مل | الباقة المميزة | 7.5 مل (190μm)",
+    "url": "https://filmx.capital/PPF",
+    "note": "Line 1 is the table caption. Each following line is one table row; ' | ' is only my marker for the cell boundaries and is not on the page. The Arabic pages say 'لمعان' and 'مطفّي' (with shadda), never 'Gloss' or 'Matte'. The English names ('PPF Gloss – Entry/Mid/Premium', 'PPF Matte') appear only in the English article inside /llms-full.txt. The page uses μ U+03BC (Greek mu), not µ U+00B5 (micro sign). Matte is also listed as 190μm. /llms-full.txt line 12 gives the same four as: 'PPF لمعان 7.5 مل — الباقة الأساسية · PPF لمعان 8.5 مل — سماكة أعلى · PPF لمعان 10 مل — الأكثر طلباً · PPF مطفّي 7.5 مل — الباقة المميزة'. The best-car-protection post attributes the thicknesses to XPEL's specs ('وفق مواصفات XPEL المعلنة: 7.5 مل تعادل 190 ميكرون، و8.5 مل تعادل 216 ميكرون، و10 مل تعادل 254 ميكرون') and says 'الباقة الأكثر طلباً في FILMX هي 10 مل بتغطية كاملة.' No prices are published."
+   },
+   {
+    "claim": "Self-healing test: pouring hot water on a light scratch on XPEL PPF makes it disappear",
+    "status": "confirmed",
+    "verbatim_ar": "في حال ظهور خدش سطحي على فيلم XPEL PPF، صبّ ماءً ساخناً عليه وسيختفي تلقائياً بفضل تقنية Self-Healing.",
+    "url": "https://filmx.capital/FAQ",
+    "note": "From the FAQ answer 'كيف أعتني بسيارتي بعد تركيب PPF أو الستيكرات؟' (also in /llms-full.txt, line 61). The site says 'خدش سطحي', not 'light scratch'. The warranty post has a second version: 'وللتذكير، فيلم XPEL المزوّد بخاصية الإصلاح الذاتي يتعامل مع الخدوش السطحية وحده: يكفي ماء ساخن أو حرارة الشمس لتختفي دوائر الغسيل الدقيقة.'"
+   },
+   {
+    "claim": "Genuine vs fake film (blog): uniform thickness, self-healing and colour stability",
+    "status": "confirmed",
+    "verbatim_ar": "الأفلام الأصيلة من علامات كـ XPEL تتميز بسماكة منتظمة، وقدرة استرداد ذاتي من الخدوش الخفيفة، وثبات لوني يمتد لسنوات.",
+    "url": "https://filmx.capital/blog/best-car-protection-riyadh-2026",
+    "note": "From section '١. أصالة الفيلم ومصدره'. The next sentence is 'الفيلم المجهول المصدر قد يبدو مقبولاً عند الخروج من المركز، لكن ظهور الاصفرار والتقلّص يأتي في الغالب خلال عام أو اثنين.' Caution if you reuse other parts of this post: it lists Tap/Tabby/Tamara payment, which contradicts /FAQ and the rule on line 15 of /llms-full.txt (cash, card or bank transfer only). It also cites a market price range (6,000–15,000 ريال) and shows hours (٩ ص – ٩ م) that differ from the site footer."
+   },
+   {
+    "claim": "Genuine vs fake (blog): warranty registered with the manufacturer by VIN versus an internal paper certificate",
+    "status": "confirmed",
+    "verbatim_ar": "اسأل أي مركز: هل الضمان مسجّل بالـVIN لدى المصنّع، أم شهادة داخلية؟ الفرق بينهما هو الفرق بين ضمان قابل للتنفيذ وضمان لا يساوي حبره.",
+    "url": "https://filmx.capital/blog/best-car-protection-riyadh-2026",
+    "note": "Same paragraph as the VIN claim. The 'paper' idea is worded 'لا ورقة تصدرها الورشة عن نفسها'. The FAQ at the bottom of the post adds: 'الفيلم الأصلي يأتي بشهادة ضمان مسجّلة برقم تعريف السيارة مباشرةً من الشركة المصنّعة، وهو ما يميّز مراكز التركيب المعتمدة.'"
+   },
+   {
+    "claim": "Six questions to ask any centre (FILMX blog)",
+    "status": "confirmed",
+    "verbatim_ar": "ستة أسئلة اسألها لأي مركز قبل التركيب\nهل الضمان مسجّل لدى المصنّع برقم سيارتي؟\nما مدة ضمان التركيب تحديداً؟\nما الحالات المستثناة نصّاً؟\nإذا تضررت قطعة واحدة، هل تُستبدل وحدها أم يُعاد الغلاف كله؟\nهل الاستبدال مشروط بغسيل السيارة عندكم أو بصيانة دورية؟\nمن يتحمّل قيمة الخامة وأجرة التركيب عند الاستبدال؟",
+    "url": "https://filmx.capital/blog/ppf-warranty-what-it-covers-riyadh",
+    "note": "The six questions are in a different post from the other genuine-vs-fake points (/blog/ppf-warranty-what-it-covers-riyadh, published 2026-09-06, not best-car-protection). The post frames them as warranty questions ('وأجوبتها تكشف الفرق بين ضمان حقيقي ووعد شفهي'), not as a genuine-vs-fake film test. Line 1 is the h3 heading and lines 2–7 are the bold lead of each list item, each followed on the page by an explanation sentence. They also appear under the heading on line 125 of /llms-full.txt."
+   }
+  ]
+ },
+ "brand": {
+  "claims": [
+   {
+    "claim": "Brand slogan «حيث تُصان الفخامة بصمت»",
+    "status": "confirmed",
+    "verbatim_ar": "حيث تُصان الفخامة بصمت",
+    "url": "https://filmx.capital/",
+    "note": "Fetched live 2026-09-28. The wording matches character for character, including the damma on تُصان (U+064F). It appears only in the homepage <meta name=\"description\">, og:description and twitter:description, where the full text is «حيث تُصان الفخامة بصمت. مركز FILMX في حي الياسمين يقدم تلميعاً، حماية الطلاء PPF، وستيكرات فنية مخصصة بمعايير استثنائية.» It is not in the visible server-rendered body text and not in llms.txt or llms-full.txt."
+   },
+   {
+    "claim": "Positioning line: luxury car protection house in Riyadh, by appointment only",
+    "status": "confirmed",
+    "verbatim_ar": "FILMX — دار حماية السيارات الفاخرة في الرياض — بالموعد فقط",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "This is the H1 of llms.txt and the 'المنشأة' fact. The same line is the homepage H1 and appears in the footer of every page checked (Home, About, Location, Contact, RefundPolicy). The About body uses a longer variant: «FILMX دار حماية سيارات فاخرة في الرياض تعمل بالموعد فقط.» The homepage <title> is different: «FILMX | العناية الفائقة بالسيارات الفاخرة في الرياض»."
+   },
+   {
+    "claim": "About-page line «لا نقدّم خدمة، نمنح سيارتك تجربة» (or exact variant)",
+    "status": "confirmed",
+    "verbatim_ar": "لا نقدم خدمة، بل نمنح سيارتك تجربة",
+    "url": "https://filmx.capital/About",
+    "note": "Found only as a variant, and the claimed wording is not published anywhere. The published text has no shadda on نقدم and includes «بل». Verified by codepoints. It appears only in the About page meta, og and twitter descriptions: «لا نقدم خدمة، بل نمنح سيارتك تجربة. تعرّف على فلسفة FILMX ومعاييرنا في تقديم العناية الفاخرة بحي الياسمين، الرياض.» It is not in the visible About body text, llms.txt or llms-full.txt. Use the published variant, not the claimed wording."
+   },
+   {
+    "claim": "Full service list: PPF, tint & heat insulation (carbon / nano ceramic), nano ceramic coating, polishing & paint correction, comprehensive detailing, custom sticker wrap (3M, KPMF), brake caliper paint",
+    "status": "confirmed",
+    "verbatim_ar": "فيلم حماية الطلاء PPF · تظليل السيارات والعزل الحراري · طلاء النانو سيراميك · التلميع وتصحيح الطلاء · العناية التفصيلية الشاملة · تغليف الستيكرات المخصصة · دهان الكاليبر",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "The names are copied exactly from the 'الخدمات' section of llms.txt, which matches the 'خدماتنا' list on Home and Location. Supporting quotes: tint is «بأنواع كربونية ونانو سيراميك وبالنسب المسموحة نظاماً في السعودية»; stickers are «بخامات 3M وKPMF الأوروبية»; PPF is «من علامتين معتمدتين لدينا: XPEL وRavoony». The site lists an eighth item, «الاستبدال المجاني لقطع فيلم الحماية PPF», tagged «— مجاناً بالكامل ضمن الضمان». In the site's own descriptions the caliper page URL is spelled /BrakeCaliberPaint and the service is written «دهان الكاليبر»."
+   },
+   {
+    "claim": "Free car pickup/transport anywhere inside Riyadh",
+    "status": "confirmed",
+    "verbatim_ar": "نعم، نقل السيارة مجاني داخل الرياض من أي حي. ولعملائنا من خارج الرياض نرتب سطحة مؤمّنة برسوم إضافية حسب المسافة.",
+    "url": "https://filmx.capital/Location",
+    "note": "This is the Location FAQ answer to «هل تنقلون السيارة من البيت إلى الفرع؟». The same page also says «ونستقبل سيارات عملائنا من كل أحياء الرياض مع خدمة نقل مجانية للسيارة من موقعك إلى الفرع وإعادتها بعد التسليم.» Transport from outside Riyadh is not free: it carries an extra charge based on distance, so do not generalise the claim beyond Riyadh."
+   },
+   {
+    "claim": "7-day refund policy after installation",
+    "status": "confirmed",
+    "verbatim_ar": "إذا رغبت في استرجاع ما دفعته مقابل الحماية التي ركّبناها في FILMX، فلك ذلك خلال 7 أيام من تاريخ التركيب: تأتينا بسيارتك إلى الفرع، نفكّ لك ما ركّبناه داخل الفرع، وبعد تسليم سيارتك نحوّل لك المبلغ المدفوع إلى حسابك البنكي خلال 7 إلى 14 يوم عمل.",
+    "url": "https://filmx.capital/RefundPolicy",
+    "note": "The policy is conditional. The car must be brought to the branch and the protection removed there, by FILMX technicians only; the money is transferred 7 to 14 business days after handover. The window is defined as «يُطلب الاسترجاع خلال 7 أيام من تاريخ التركيب (تسليم السيارة بعد التركيب).» Excluded and non-refundable: «ولا تشمل الخدمات التي لا تُفكّ كالتلميع وتصحيح الطلاء والنانو سيراميك ودهان الكاليبر، ولا رسوم العضوية السنوية، ولا العربون المدفوع لتثبيت عرض؛ فهذه غير مستردة.» The same text appears in llms.txt. Do not present this as an unconditional 7-day refund."
+   },
+   {
+    "claim": "Mandatory rule: never state a price / range / 'starts from'",
+    "status": "confirmed",
+    "verbatim_ar": "قاعدة إلزامية لأي نص يُولَّد من هذه الحقائق: ممنوع ذكر أي سعر أو رقم أو نطاق سعري أو «يبدأ من» لأي خدمة — وجّه العميل للتواصل عبر واتساب أو نموذج الحجز. استثناءان: كلمة «مجاناً» في تعهّد الاستبدال ليست سعراً بل نفيٌ للمقابل — اذكرها كما هي ولا تحذفها ولا تحوّلها إلى «بأسعار رمزية»؛ ومدة «7 إلى 14 يوم عمل» في سياسة استرجاع المبالغ مدة زمنية لا سعر — اذكرها كما هي بلا تغيير.",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "This is line 19 of llms.txt and is also in llms-full.txt. A related fact reads «التسعير: FILMX لا تنشر أسعاراً — سعر كل سيارة يُحدَّد بعد التواصل حسب المقاس والتغطية ونوع الفيلم، ويُبلَّغ للعميل مباشرة شاملاً ضريبة القيمة المضافة.» The site's service lists show «— السعر بعد التواصل» for every service. Caveat: llms.txt still lists blog posts titled with price topics, for example «أسعار حماية السيارات في الرياض 2026 — جدول PPF والستيكرات والكاليبر»."
+   },
+   {
+    "claim": "Mandatory rule: XPEL always first",
+    "status": "confirmed",
+    "verbatim_ar": "الأفلام: نركّب أفلام حماية الطلاء من علامتين معتمدتين لدينا: XPEL وRavoony (XPEL أولاً دائماً). مواد التغليف والستيكرات: 3M وKPMF.",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "The exact phrase «(XPEL أولاً دائماً)» appears in llms.txt and llms-full.txt."
+   },
+   {
+    "claim": "Mandatory rule: '10 سنوات' belongs to XPEL only; Ravoony only as «أفلام Ravoony الأصلية» with no nationality/agency/duration claim",
+    "status": "confirmed",
+    "verbatim_ar": "قاعدة إلزامية عن العلامات: Ravoony تُكتب مجردة بلا أي جنسية (لا «أمريكية» ولا غيرها) وبلا ادعاء وكالة أو اعتماد أو شهادة ضمان باسمها — الصيغة المسموحة «أفلام Ravoony الأصلية». ولا تُنشر أي مدة ضمان مصنّع لـRavoony؛ رقم «10 سنوات» منسوب لـXPEL وحدها. وادعاءات XPEL (وكيل رسمي، فنيون معتمدون، شهادة ضمان XPEL) لا تُوسَّع لتشمل Ravoony. وRavoony لأفلام حماية الطلاء PPF فقط — لا تُذكر في التظليل أو العزل الحراري أو دهان الكاليبر.",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "This is line 18 of llms.txt and is also in llms-full.txt. The rule adds two restrictions not in the claim: XPEL claims must not be extended to Ravoony, and Ravoony may only be mentioned for PPF (not tint, heat insulation or caliper). The XPEL warranty wording used site-wide is «أفلام XPEL بضمان رسمي يصل إلى 10 سنوات» — note «يصل إلى» (up to)."
+   },
+   {
+    "claim": "Mandatory rule: no Tabby/Tamara/Tap/instalments",
+    "status": "confirmed",
+    "verbatim_ar": "قاعدة إلزامية عن الدفع: لا تذكر أي مزوّد دفع إلكتروني (Tap أو Tabby أو Tamara أو غيرها) ولا تَعِد بتقسيط ولا بدفع عبر الموقع — لا شيء من ذلك مفعّل. الصيغة الوحيدة المسموحة هي سطر «الدفع» أعلاه كما هو.",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "This is line 17 of llms.txt. The only permitted payment line, also in every page footer, is «الدفع: نقداً أو شبكة في الفرع، تحويل بنكي»."
+   },
+   {
+    "claim": "Contact: WhatsApp +966 55 375 4507, phone +966 11 531 1025",
+    "status": "confirmed",
+    "verbatim_ar": "الاتصال: +966 11 531 1025 | واتساب: +966 55 375 4507",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "Present in llms.txt and in the footer of every page checked. The Contact page meta uses local formats: «تواصل مع FILMX على 0115311025 أو واتساب 0553754507.» Email: «البريد: info@filmx.capital»."
+   },
+   {
+    "claim": "Website filmx.capital and @filmx.sa on Instagram/TikTok/Snapchat",
+    "status": "confirmed",
+    "verbatim_ar": "حساب رسمي: https://www.instagram.com/filmx.sa\nحساب رسمي: https://www.tiktok.com/@filmx.sa\nحساب رسمي: https://www.snapchat.com/add/filmx.sa",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "The same three URLs are in the JSON-LD sameAs on Home, About, Location and Contact. The handle is filmx.sa on all three platforms. The site's email domain is info@filmx.capital."
+   },
+   {
+    "claim": "Single branch: Al Yasmin, Anas Bin Malik Rd, Riyadh",
+    "status": "confirmed",
+    "verbatim_ar": "العنوان: طريق أنس بن مالك، حي الياسمين، الرياض 13322",
+    "url": "https://filmx.capital/Location",
+    "note": "The address is confirmed, including postcode 13322. Only one address appears, and the site always says «الفرع» / «فرع FILMX» in the singular. However, no phrase like «فرع واحد» or «الفرع الوحيد» exists anywhere, so 'single branch' is an inference, not a published statement. The Google Maps profile name is «FILMX | العناية الفاخرة بالسيارات» (https://maps.app.goo.gl/747Cix1qWxejVhGR8). Service area: «نطاق الخدمة: الرياض (استقبال من خارجها بموعد مسبق)»."
+   },
+   {
+    "claim": "Opening hours",
+    "status": "confirmed",
+    "verbatim_ar": "ساعات العمل: السبت: ١٠ ص – ١٠ م؛ الأحد – الخميس: ٢ م – ١٠ م؛ الجمعة: مغلق (نستقبل بحجزٍ مسبق فقط)",
+    "url": "https://filmx.capital/Contact",
+    "note": "Identical in llms.txt and the footer of every page checked. The numbers use Arabic-Indic digits and the dashes are en dashes (–). The Location FAQ has a prose version with Western digits: «السبت من 10 صباحاً إلى 10 مساءً، والأحد إلى الخميس من 2 ظهراً إلى 10 مساءً، والجمعة مغلق — والزيارة بحجز مسبق.»"
+   }
+  ]
+ },
+ "offer": {
+  "claims": [
+   {
+    "claim": "National Day 96 offer on Snapchat @filmx.sa: full-body PPF from 6,996 SAR incl. VAT, valid until 30 September",
+    "status": "confirmed",
+    "verbatim_ar": "عرض اليوم الوطني ٩٦ للحين شغال:\nحماية PPF لكامل الهيكل\nمن 6996 ريال شامل الضريبة، للسيارة الواحدة\n\n+ استبدال مجاني لأي قطعة تتضرر طول مدة الضمان\n\nالعرض لآخر الشهر (٣٠ سبتمبر)\nواتساب: 0553754507",
+    "url": "https://www.snapchat.com/spotlight/W7_EDlXWTBiXAEEniNoMPwAAYd296dnpua2dsAaCEcmbaAaCEcmWfAAAAAw",
+    "note": "Re-fetched live on 2026-09-28 from https://www.snapchat.com/add/filmx.sa (it redirects to /@filmx.sa). This is the caption of a Spotlight snap uploaded 2026-09-09 04:34 UTC. The line breaks (\\n) are copied as published. The price is written '6996' in Western digits with no thousands separator, and 'للسيارة الواحدة' qualifies it as per car. The caption gives no year. The end date is written 'لآخر الشهر (٣٠ سبتمبر)', and 2026 is implied by the post date and '٩٦'. The caption also bundles the free-replacement pledge. Snapchat's own machine tag for the snap reads 'عرض حماية PPF للسيارات بمناسبة اليوم الوطني.', but that is auto-generated and is not the brand's wording."
+   },
+   {
+    "claim": "National Day 96 offer on TikTok @filmx.sa: full-body PPF from 6,996 SAR incl. VAT, valid until 30 September",
+    "status": "confirmed",
+    "verbatim_ar": "حماية كاملة لسيارة العميل 🇸🇦 عرض اليوم الوطني ٩٦ حماية طلاء PPF كاملة الهيكل تبدأ من ٦,٩٩٦ ريال (شامل الضريبة) سارٍ حتى ٣٠ سبتمبر احجز موعدك 👇 واتساب 0553754507",
+    "url": "https://www.tiktok.com/@filmx.sa/video/7683516461893127432",
+    "note": "Confirmed live in two places: the video page and the embed https://www.tiktok.com/embed/@filmx.sa. It is a photo-mode post with createTime 1788958088, which is 2026-09-09 12:48 UTC. The desc field is one line. The post's content blocks split it into these lines: 'حماية كاملة لسيارة العميل' / '🇸🇦 عرض اليوم الوطني ٩٦' / 'حماية طلاء PPF كاملة الهيكل' / 'تبدأ من ٦,٩٩٦ ريال (شامل الضريبة)' / 'سارٍ حتى ٣٠ سبتمبر' / 'احجز موعدك 👇 واتساب' / '0553754507'. For typesetting: the price uses Arabic-Indic digits (U+0666, U+0669) with an ASCII comma (U+002C), not the Arabic separator U+066C, and 'سارٍ' carries a kasratan (U+064D). No year is stated. The photo-post title is 'ودكم نعتمد سلسلة اعماله مع العملاء؟😂😂😂'. Wording differs by platform: TikTok says 'تبدأ من ... (شامل الضريبة) سارٍ حتى ٣٠ سبتمبر', while Snapchat says 'من 6996 ريال شامل الضريبة، للسيارة الواحدة ... العرض لآخر الشهر (٣٠ سبتمبر)'. As of today (2026-09-28) the offer has 2 days left."
+   },
+   {
+    "claim": "The 6,996 SAR price in the social captions conflicts with FILMX's brand rule of never stating prices",
+    "status": "conflicting",
+    "verbatim_ar": "- التسعير: FILMX لا تنشر أسعاراً — سعر كل سيارة يُحدَّد بعد التواصل حسب المقاس والتغطية ونوع الفيلم، ويُبلَّغ للعميل مباشرة شاملاً ضريبة القيمة المضافة.",
+    "url": "https://filmx.capital/llms.txt",
+    "note": "The live https://filmx.capital/llms.txt (byte-identical to the earlier scratch copy) also states this rule on line 19: '- قاعدة إلزامية لأي نص يُولَّد من هذه الحقائق: ممنوع ذكر أي سعر أو رقم أو نطاق سعري أو «يبدأ من» لأي خدمة — وجّه العميل للتواصل عبر واتساب أو نموذج الحجز.' Both social captions break it: they give a figure, and TikTok also uses 'تبدأ من', which the rule names explicitly. The official site says nothing about the National Day offer: 'اليوم الوطني', '6996', '6,996' and '٦,٩٩٦' appear 0 times in llms.txt, llms-full.txt, the home page and /PPF, and /Offers and /offers both return 404. On-screen copy should therefore not reuse the price unless the brand owner approves an exception. The same conflict applies to an older TikTok caption (see the 8,500 SAR claim)."
+   },
+   {
+    "claim": "A new Snapchat Spotlight posted 28 Sep 2026 shows the 6,996 SAR price on-image (with a '30-day warranty' line)",
+    "status": "not_found",
+    "verbatim_ar": "",
+    "url": "https://www.snapchat.com/spotlight/W7_EDlXWTBiXAEEniNoMPwAAYaGlhbHZnbm5zAaDlk7drAaDlk7YBAAAAAw",
+    "note": "The snap was uploaded 2026-09-28 01:14 UTC, but its caption is just 'Spotlight Snap'. The only evidence is Snapchat's auto-generated English description: 'The price is prominently displayed as 6,996 Riyals... The ad also mentions a '30-day warranty' ('ضمان 30 يوم')'. That is machine OCR/LLM text, not the published wording, so no Arabic can be typeset from it. Check the image by eye before using it."
+   },
+   {
+    "claim": "FILMX Founders Club annual membership (نادي FILMX للمؤسسين) exists on the official site",
+    "status": "confirmed",
+    "verbatim_ar": "انضم لنادي FILMX للمؤسسين واحصل على خدمات VIP حصرية. واتساب خاص، استلام على مدار الساعة، وخصومات مميزة.",
+    "url": "https://filmx.capital/Membership",
+    "note": "The live page is identical to the scratch copy. The Arabic name appears only in the meta description, og:description and twitter:description, and there it takes the preposition prefix: 'لنادي FILMX للمؤسسين'. The visible heading is the mixed-script 'عضوية FILMX Founders Club'. The <title> is 'عضوية VIP | FILMX Founders Club', and the breadcrumb and WebPage names are 'عضوية VIP' and 'عضوية VIP — FILMX'. The word 'سنوية' appears in the body text. The refund policy separately confirms an annual fee exists and is non-refundable: 'ولا رسوم العضوية السنوية'."
+   },
+   {
+    "claim": "Founders Club membership benefits (visible page text)",
+    "status": "confirmed",
+    "verbatim_ar": "عضوية VIP سنوية بخدمات حصرية: واتساب خاص، استلام على مدار الساعة، وأولوية مواعيد — قيمة العضوية تُعرض عند التواصل.",
+    "url": "https://filmx.capital/Membership",
+    "note": "This is the only benefits text in the page body: a private WhatsApp line, 24-hour pickup, and appointment priority. No price is published ('قيمة العضوية تُعرض عند التواصل'), which fits the no-prices rule. The page has no further benefit list, tiers, founder-seat limit or sign-up terms."
+   },
+   {
+    "claim": "Founders Club includes discounts (خصومات مميزة)",
+    "status": "conflicting",
+    "verbatim_ar": "وخصومات مميزة",
+    "url": "https://filmx.capital/Membership",
+    "note": "'خصومات مميزة' appears only in the meta description, og:description and twitter:description. The visible body lists 'وأولوية مواعيد' in that position instead. So the page contradicts itself on its third benefit, discounts versus appointment priority. The visible wording is safer to typeset."
+   },
+   {
+    "claim": "Free inspection (معاينة مجانية) is currently advertised",
+    "status": "confirmed",
+    "verbatim_ar": "إن لم تكن متأكداً ما تحتاجه سيارتك، تُقدّم FILMX معاينة مجانية يضع بعدها الفريق خطة عناية مناسبة.",
+    "url": "https://filmx.capital/blog/ceramic-vs-detailing-polishing",
+    "note": "This appears only in blog articles, not on Snapchat, TikTok, /Membership, the home page or /Booking. The live page confirms it under the heading '### احجز معاينة'. Other live blog wording: 'يُمكنك حجز معاينة مجانية للحصول على خطة عمل واضحة.' (https://filmx.capital/blog/car-polishing-paint-correction-guide) and '[احجز موعد معاينة مجانية](/Booking) ونرشّح لك الفيلم والنسبة الأنسب لسيارتك واستخدامك.' (in llms-full.txt for https://filmx.capital/blog/car-window-tint-heat-insulation-guide; not re-fetched individually). The exact phrase 'استشارة مجانية' (free consultation) was not found anywhere."
+   },
+   {
+    "claim": "Free car transport within Riyadh is currently advertised",
+    "status": "confirmed",
+    "verbatim_ar": "اختر الخدمة والباقة، أدخل بيانات سيارتك، واختر الموعد المناسب — يصلك تأكيد فوري، مع خدمة نقل مجانية للسيارة داخل الرياض.",
+    "url": "https://filmx.capital/Booking",
+    "note": "Live /Booking also says 'كما نقدم خدمة نقل السيارة مجاناً داخل الرياض.' and the meta description reads 'احجز موعدك الآن مع FILMX لخدمات تغليف السيارات وأفلام الحماية PPF ودهان الكاليبر. نقل السيارة مجاناً وضمان موثوق.' Note that /Membership offers 'استلام على مدار الساعة' as a VIP-only perk, which overlaps with this general free-transport claim."
+   },
+   {
+    "claim": "Free replacement of any damaged PPF piece (standing pledge, also used in the National Day captions)",
+    "status": "confirmed",
+    "verbatim_ar": "الاستبدال المجاني للقطع المتضررة — أي قطعة PPF تتضرر… نستبدلها لك مجاناً",
+    "url": "https://filmx.capital/",
+    "note": "Confirmed live on the home page, /PPF, /FreeReplacement and llms.txt. The home page body reads: 'كل قطعة من فيلم حماية الطلاء PPF ركّبناها في FILMX ثم تضررت — لأي سبب كان — نستبدلها لك مجاناً بالكامل، من لحظة تسليم سيارتك وطوال مدة الضمان، بلا شروط ولا استثناءات ولا حدّ لعدد القطع.' Snapchat has a related caption, uploaded 2026-09-09: 'اي قطعه متضرره حتى لو كان سوء استخدام ، تتغير ببلاش' (https://www.snapchat.com/spotlight/W7_EDlXWTBiXAEEniNoMPwAAYcGxkanJoeHV2AaCEbalyAaCEbZwhAAAAAQ). The word 'مجاناً' is allowed under the brand rule."
+   },
+   {
+    "claim": "Other TikTok offer: 10-year self-healing package at 8,500 SAR",
+    "status": "conflicting",
+    "verbatim_ar": "شفتوا الاختبار بعيونكم؟ 👀 هذي قوة المعالجة الذاتية الحقيقية في تغليف السيارات، جربناها قدامكم لحظة بلحظة وبدون أي تلاعب. والأهم من كذا: لو ركبت الحماية عندنا لو راحت خلال ١٠ سنين خاصية المعالجة الذاتية، نغيّر لك التغليف بالكامل ونركب جديد على حسابنا —  الباقة الحين بسعر 8500 ريال تغليف أصلي، ضمان واضح، وخدمة ما تشوفها إلا عندنا. احجز موعدك قبل لا تفوتك الأماكن 📍 FILMX",
+    "url": "https://www.tiktok.com/@filmx.sa/video/7679221895073385746",
+    "note": "The caption is live in the TikTok embed. The video ID timestamp gives 2026-08-28 23:02 UTC. It says 'الحين' but is a month old and gives no end date, so it cannot be confirmed as a current offer. It also breaks the no-prices rule. The verbatim includes the double space after '—' exactly as published. Other generic offer teasers on TikTok, with no terms given: 'لحقوا على العروض😂' (2026-09-21, video 7687931770699894023) and 'الحجز عن طريق البايو ، لاتفوتكم العرووض #filmx ' (2026-08-06, video 7671023784559643922)."
+   }
+  ]
+ },
+ "xpel_auth": {
+  "claims": [
+   {
+    "claim": "FILMX says on filmx.capital that it is a certified/authorized XPEL installation centre in Riyadh",
+    "status": "confirmed",
+    "verbatim_ar": "نعم، FILMX مركز معتمد لتركيب أفلام XPEL لحماية الطلاء في الرياض، وتأتي مع شهادة ضمان XPEL الرسمية مسجّلة لكل سيارة.",
+    "url": "https://filmx.capital/FAQ",
+    "note": "Re-fetched live on 2026-09-28 (HTTP 200, byte-for-byte the same as the earlier scratch copy). The sentence is the answer to the FAQ heading «هل FILMX وكيل معتمد لأفلام XPEL في السعودية؟». It appears both as a visible <h3>/<p> in the page body and in the FAQPage JSON-LD, and again on line 65 of https://filmx.capital/llms-full.txt. The answer goes on: «ونركّب كذلك أفلام Ravoony الأصلية، وهي العلامة الثانية المعتمدة لدينا، وضمان المصنّع فيها حسب الفيلم المركّب.» Related wording elsewhere in the same FAQ: «في FILMX نركّب أفلام حماية الطلاء من علامتين معتمدتين لدينا: XPEL وRavoony» and «عند التركيب في FILMX، تحصل على شهادة ضمان XPEL الرسمية مسجّلة برقم سيارتك.» Note that the question says «وكيل معتمد» (authorized agent) while the answer says «مركز معتمد لتركيب» (authorized installation centre). Every string was checked character for character against the raw HTML."
+   },
+   {
+    "claim": "FILMX appears on Zan Arabia's authorized-installer list or on XPEL.com's installer locator for Riyadh",
+    "status": "not_found",
+    "verbatim_ar": "",
+    "url": "https://zanarabia.sa/installers/central/riyadh/",
+    "note": "FILMX is not listed on either official source. ZAN ARABIA: zanarabia.com/en/installers/ now 301-redirects to zanarabia.sa/en/installers/. Checked the EN and AR main lists (https://zanarabia.sa/en/installers/, https://zanarabia.sa/installers/) and the Riyadh sub-pages (/en/installers/central/riyadh/ and /installers/central/riyadh/). The whole list is rendered on the server. There is no pagination and no AJAX loading; the locator's search box only filters the list already on the page. The sitemap has no other installer URLs. Riyadh has exactly 11 authorized centres: Wothouq - Luxury Drive (Al Raed), Alien Garage (Al Munsiyah), Steer (Al Qirawan), Auto 5 (Al Muruj), M T Garage (Al Rimal), REFRESH CAR (Al Rimal), R1 AUTO CARE (Al Sahafah), E CARE PLUS (Al Rawdah), CARZILL (Al Nakheel), AUTOTEK (Al Rabi), LEZOF (An Nafal). Zero matches for FILMX, Film X, Film-X, فيلم اكس, فيلم إكس, فيلمكس or فلم اكس. Also zero matches for FILMX's own address and numbers taken from its llms.txt: Anas bin Malik Rd, Al Yasmin 13322 (يasmin/الياسمين), +966 11 531 1025 and +966 55 375 4507. So FILMX is not listed under another trade name either. XPEL.COM: the locator is built client-side from /api/installers/{country}/{state}/{city}. https://www.xpel.com/api/installers/Saudi_Arabia/All/All returns all 12 Saudi entries: Global Protection Solutions, 360 Degree Auto Care, ZAN Arabia L.L.C. CO. **EXCLUSIVE DISTRIBUTOR**, Wothouq - Luxury Drive, M T GARAGE, Auto5, Refresh Car, Steer, Motor Dip Detailing, Alien Garage, Cardip, Arwan Trading Est. The Saudi_Arabia/Saudi_Arabia/Riyadh endpoint returns only CARZILL. None of these is FILMX, and none matches its address or phone numbers. Out of 102 countries in the XPEL country list, only Saudi Arabia and the UAE are Gulf entries. xpelme.com/installer-saudi-arabia.php (not an assigned source) could not be reached (connection reset / HTTP 503). Zan's footer describes itself as «زان العربية — الوكيل الحصري لحلول XPEL في المملكة العربية السعودية.» This contradicts FILMX's claim in claim 1 as far as these public lists go."
+   },
+   {
+    "claim": "Zan Arabia offers a way to check genuine XPEL film by roll number",
+    "status": "confirmed",
+    "verbatim_ar": "أدخل رقم رول XPEL للتحقق من حالته عبر نظام التحقق الرسمي لدى زان العربية.\nاستخدم رقم الرول المطبوع على ملصق المنتج الرسمي. ستوضح النتيجة ما إذا كان الرول صحيحًا وما إذا سبق استخدامه.",
+    "url": "https://zanarabia.sa/verification/",
+    "note": "The URL given, zanarabia.com/en/verification/, now 301-redirects to https://zanarabia.sa/en/verification/. The Arabic page is https://zanarabia.sa/verification/, titled «التحقق من رول ومنتج XPEL الأصلي | زان العربية». The two Arabic lines above are two separate paragraphs on the page. How it works: an on-page form posts to the same URL. It has one field, «رقم الرول» (name=roll_number, id=zan-roll-number, required), a hidden qr_mode=0, and a button «تحقق من المنتج». The result shows whether the roll is valid and whether it has already been used. Checklist on the page under «قبل التحقق»: «أدخل رقم الرول كما هو مطبوع على ملصق المنتج.» / «تأكد من تنفيذ التركيب لدى مركز XPEL معتمد.» / «تواصل مع زان العربية إذا ظهرت النتيجة غير صحيحة أو سبق استخدام الرول.» English version: «Enter the XPEL roll number to check its status through the official Zan Arabia verification system.» I did not submit a test roll number."
+   },
+   {
+    "claim": "In Saudi Arabia, XPEL warranty eligibility requires installation by an authorized installer plus registration",
+    "status": "confirmed",
+    "verbatim_ar": "لا. تعتمد الأهلية على نوع منتج XPEL، وتركيبه لدى فني مؤهل ومركز معتمد، والتحقق من المنتج وتسجيله عند الحاجة، وسلامة السطح الأصلي، والالتزام بتعليمات الاستخدام والعناية الرسمية.",
+    "url": "https://zanarabia.sa/warranty/",
+    "note": "The URL given, zanarabia.com/en/warranty/, now 301-redirects to zanarabia.sa/en/warranty/. The sentence answers the FAQ «هل كل عملية تركيب مؤهلة تلقائيًا للضمان؟». Caveat: registration is conditional. The page says «تسجيله عند الحاجة» (\"registration where required\"), not required in every case. Installation at an authorized centre is required. Among the exclusions the page lists: «أو تركيبه بواسطة فني غير مؤهل أو غير معتمد.» The warranty is granted by XPEL, not Zan: «ضمان المنتج ممنوح من شركة XPEL». Claim steps: «ابدأ بالتحقق من رول أو منتج XPEL، ثم تواصل مع مركز التركيب المعتمد الذي نفذ الخدمة، وقدّم الفاتورة وبيانات الضمان أو التسجيل وبيانات السيارة والتركيب وصورًا أو فيديو واضحًا للمشكلة.» Warranty periods: 10 years for ULTIMATE PLUS, ULTIMATE FUSION, STEALTH and PRIME automotive window film; 7 years for EXO ARMOR. English version: «Eligibility depends on the specific XPEL product, installation by a qualified authorized installer, product verification and registration where required...». The official PDF (/assets/downloads/xpel-warranty-information-ar.pdf, 7.3 MB) downloaded, but I could not extract its text in this environment, so it was not checked."
+   }
+  ]
+ }
+}

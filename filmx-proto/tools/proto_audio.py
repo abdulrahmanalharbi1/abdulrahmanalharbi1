@@ -125,23 +125,50 @@ def felt_piano(m, s, vel=0.5):
 
 
 def music(cfg):
-    bpm = cfg.get('bpm', 100); beat = 60 / bpm; start = cfg.get('start', 0.0); end = cfg.get('end', DUR)
-    prog_ = cfg.get('chords', [[50, 57, 62, 65], [46, 53, 58, 62], [41, 48, 53, 57], [48, 55, 60, 64]])
-    out = np.zeros(N); pulse = np.zeros(N)
-    t = start; bar = 0
-    while t < end - 0.05:
-        ch = prog_[bar % len(prog_)]
-        for k, m in enumerate(ch[1:]):  # soft piano chord, slightly spread
-            place(out, felt_piano(m, 4 * beat + 1.2, 0.26), t + k * 0.018)
-        place(out, felt_piano(ch[0], 4 * beat + 1.5, 0.4), t)
-        for b in range(4):  # sub pulse on every beat + air tick on offbeats
-            tt = t + b * beat
-            if tt >= end: break
-            n = int(0.35 * SR)
-            place(pulse, np.sin(2 * np.pi * m2f(ch[0] - 12) * np.arange(n) / SR) * env(n, 0.01, 0.16) * (0.9 if b == 0 else 0.55), tt)
-            place(pulse, tick() * 0.55, tt + beat / 2)
-        bar += 1; t += 4 * beat
-    return out + pulse * 0.8
+    """Reference-style pulse bed (measured): ~90 BPM, soft shaker on every 8th (>5 kHz), felt pluck on every quarter
+    (250-600 Hz), sustained pad under 700 Hz; flat energy, no kick/snare/riser, never ducked."""
+    bpm = cfg.get('bpm', 90); beat = 60 / bpm; start = cfg.get('start', 0.0); end = cfg.get('end', DUR)
+    pad_notes = cfg.get('pad', [38, 45, 50, 53, 57])        # D2 A2 D3 F3 A3 (Dm), everything < 700 Hz
+    pluck_seq = cfg.get('pluck', [62, 65, 69, 67, 62, 65, 69, 72])  # D4 F4 A4 G4 ... (293-523 Hz)
+    out = np.zeros(N)
+    n = int((end - start + 1.5) * SR); tt = np.arange(n) / SR; pad = np.zeros(n)
+    for m in pad_notes:
+        for det in (-0.08, 0.07):
+            f = m2f(m) * 2 ** (det / 12)
+            pad += np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * 2 * f * tt)
+    pad = lp(pad, 700, 4) * np.minimum(1, tt / 0.25) * 0.06
+    place(out, pad, start)
+    k = 0; t = start
+    while t < end - 0.02:
+        place(out, felt_piano(pluck_seq[k % len(pluck_seq)], 1.4, 0.34 if k % 4 == 0 else 0.26), t)
+        for h in (0, 0.5):  # shaker 8ths, on-beat louder
+            m = int(0.12 * SR)
+            sh = bp(noise(0.12), 5200, 12000) * env(m, 0.004, 0.035)
+            place(out, sh * (0.30 if h == 0 else 0.17), t + h * beat)
+        k += 1; t += beat
+    return out
+
+
+def squeegee():
+    """Act-break swish, re-voiced as a film squeegee swipe: 150 ms bright burst (3-10 kHz) with a ~4.3 kHz ping,
+    then a 250 ms tonal tail falling ~4 semitones. Peak on the cut frame (place 0.12 s early)."""
+    n1 = int(0.15 * SR); burst = bp(noise(0.15), 3000, 10000) * np.sin(np.pi * np.linspace(0, 1, n1)) ** 0.7
+    ping = np.sin(2 * np.pi * 4300 * np.arange(int(0.11 * SR)) / SR) * env(int(0.11 * SR), 0.004, 0.05)
+    tail = sweep(6300, 5000, 0.25) * np.linspace(1, 0, int(0.25 * SR)) ** 2 * 0.35
+    out = np.zeros(int(0.45 * SR)); out[:n1] += burst; out[int(0.03 * SR):int(0.03 * SR) + len(ping)] += ping * 0.5
+    out[n1:n1 + len(tail)] += tail
+    return norm(out, 0.8)
+
+
+def hiss_swell():
+    """Logo swell, re-voiced as a heat-gun hiss: noise 250-1500 Hz rising ~17 dB over 0.7 s, cut hard at the peak."""
+    n = int(0.7 * SR); k = np.linspace(0, 1, n)
+    x = bp(noise(0.7), 250, 1500) * (10 ** (-17 / 20) + (1 - 10 ** (-17 / 20)) * k ** 2)
+    x[-int(0.01 * SR):] *= np.linspace(1, 0, int(0.01 * SR))
+    return norm(x, 0.7)
+
+
+SFX.update({'squeegee': squeegee, 'hiss': hiss_swell})
 
 
 if __name__ == '__main__':
@@ -150,8 +177,8 @@ if __name__ == '__main__':
         place(fol, SFX[c['type']](), c['t'], c.get('gain', 1))
     mus = music(TL['music']) if TL.get('music') else np.zeros(N)
     end = int(DUR * SR)
-    mus[end - int(0.4 * SR):end] *= np.linspace(1, 0, int(0.4 * SR))
-    mix = fol * 0.8 + mus * TL.get('music', {}).get('gain', 0.35) if TL.get('music') else fol * 0.8
+    mus[end - int(0.5 * SR):end] *= np.linspace(1, 0, int(0.5 * SR)) ** 1.5
+    mix = fol * 0.55 + mus * TL.get('music', {}).get('gain', 1.0) if TL.get('music') else fol * 0.55
     d = int(0.012 * SR)
     L = mix + np.concatenate([np.zeros(d), mus[:-d]]) * 0.08; R = mix - np.concatenate([np.zeros(d), mus[:-d]]) * 0.08
     st = np.stack([L[:end], R[:end]], 1); st = st / (np.max(np.abs(st)) + 1e-9) * 0.9
