@@ -1,0 +1,32 @@
+{
+  "project": "FILMX — PPF أصلي ولا مغشوش (Higgsfield project ec7fbfdc-5c44-4c37-be93-43304ab4a916)",
+  "character_element": {"id": "02e86f20-001b-4d32-abab-1753a62a7d2e", "name": "FILMX-PPF-Specialist", "source_job": "ae763e3b-1cf4-4d3d-8195-1779609d412e"},
+  "voice": {"model": "text2speech_v2 / elevenlabs", "voice_id": "375a3398-e3b4-4f91-845d-42181e352899", "name": "Luna"},
+  "images": {
+    "char_nb (character reference, Nano Banana 2)": "ae763e3b-1cf4-4d3d-8195-1779609d412e",
+    "paper (GPT Image 2.5)": "f9d995fe-9729-4ca5-854d-32bda71b2db8",
+    "eng_car": "5f4ebb0e-9e02-43b4-8a36-bd1f397b6f05",
+    "eng_magnifier": "befc1592-7593-4cc6-8639-21715fd5120d",
+    "eng_kettle": "b87d81bb-5dc8-4c54-9e7c-1a9b6431112a",
+    "eng_roll": "d4012030-8cea-4196-ab61-9f39e9f8e720",
+    "eng_standing (character engraving)": "472a80b3-fa28-464c-8374-b73645f11a2c",
+    "eng_bust (character engraving)": "0f256b11-70ea-447a-b6b4-1458f77709b0",
+    "start frames sf0..sf7": ["b8e53cad-59d3-4ec2-8b0c-a496e89f5bc0", "d7d68d3a-3e7c-42da-8ecb-7e4c1ae606a6", "0e3026cc-763a-420d-b88b-fafd2dc7dc2f", "a223f168-fd7b-4884-bb68-3ca4526ee7f5", "08918a5e-54b3-447e-b114-1538e9664878", "7aa8db62-9a2b-48b5-8d01-adffbd8249e4", "271ce7a3-f434-454e-96bc-6c12cf2f72b5", "904f7b5e-c451-444b-9530-96ed151e786c"]
+  },
+  "videos (Seedance 2.0, 1080p, 9:16, 5s, image-to-video)": {
+    "c0_hook": "7526a442-f82a-44bc-90a3-bb4d128f4bf2",
+    "c1_clear": "dce08cb7-0872-4e24-b140-50eae8ae13a2",
+    "c2_hazy": "801eb9d4-d5d5-42e1-a831-c050433d0277",
+    "c3_stretch_ok": "672048d1-f3f6-47e9-b9d1-4b4a73e0fa64",
+    "c4_stretch_bad": "a697ff9c-3371-45fd-a833-6b387c39e104",
+    "c5_heat": "8fb4b906-0c6d-4352-b25e-6739e2ec7249",
+    "c6_serial": "af5cfdda-9453-479c-adac-11916a5094b9",
+    "c7_cta": "953017e9-1959-43f3-acbb-5c494c572ab9"
+  },
+  "voiceover takes (used: v2_1..v2_6 + vo7)": {
+    "v2_1": "27c52997-05f4-41be-ba0c-8b849c6e5cfe", "v2_2": "c61c0a9f-e316-4951-9de1-855df70232bb",
+    "v2_3": "d5bd956a-62d4-4ce6-9ed8-362b2f3724f5", "v2_4": "3957a76d-f1cd-4176-a0ad-6ceb985337ee",
+    "v2_5": "c0d6a765-d629-40e2-b66c-b4d564c8ae90", "v2_6": "3d37830d-6cba-4ef1-ba9c-1c4a30d81ebb",
+    "vo7": "40626262-1d2f-4cc4-979e-94300e05c987"
+  }
+}

@@ -1,0 +1,11 @@
+node_modules/
+assets/frames/
+assets/clipaudio/
+assets/img/
+out/*
+!out/FILMX_PPF_Original_vs_Fake.mp4
+!out/timeline.json
+!out/poster.jpg
+*.tmp.wav
+__pycache__/
+!out/FILMX_PPF_share.mp4

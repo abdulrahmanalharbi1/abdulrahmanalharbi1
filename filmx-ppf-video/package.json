@@ -1,0 +1,13 @@
+{
+  "name": "filmx-ppf-motion",
+  "private": true,
+  "type": "module",
+  "description": "FILMX — genuine vs fake PPF educational motion graphic (vintage paper style)",
+  "scripts": {
+    "stills": "node engine/render.mjs --stills",
+    "render": "node engine/render.mjs --video"
+  },
+  "dependencies": {
+    "playwright": "1.56.1"
+  }
+}
