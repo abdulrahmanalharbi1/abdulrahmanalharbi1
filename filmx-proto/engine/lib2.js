@@ -8,32 +8,39 @@
   const { W, H, COL, clamp, lerp, prog, E, mk, measure, text, IMG, h2 } = FX;
   const INK = '#1C1B18';
   const GREY_GRAD = [[0, '#615D57'], [1, '#9A958D']]; // warm version of the measured #5E5E5E→#969696 hero gradient
-  let STAGE = null;
-
-  function buildStage() {
+  let PAPER = null, GRID = null;
+  function buildPaper() {
     const cv = mk(W, H), g = cv.getContext('2d');
     g.fillStyle = '#FCFAF4'; g.fillRect(0, 0, W, H);
-    // tall soft vignette: sides ~7% darker, corners ~35% darker
-    const v = g.createRadialGradient(W / 2, H * 0.47, H * 0.22, W / 2, H * 0.5, H * 0.74);
-    v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(0.7, 'rgba(70,60,45,0.07)'); v.addColorStop(1, 'rgba(60,50,38,0.36)');
-    g.fillStyle = v; g.fillRect(0, 0, W, H);
-    // dashed architectural grid: 140px cells, 18 on / 13 off, 2px, #DCDAD5, visible only in an oval around (540,905)
+    // elliptical vignette fitted to the reference luminance table: corners ~208, sides ~223, centre ~252
+    g.save(); g.translate(540, 960); g.scale(1, 2.2);
+    const v = g.createRadialGradient(0, 0, 350, 0, 0, 600);
+    v.addColorStop(0, 'rgba(60,50,38,0)'); v.addColorStop(1, 'rgba(60,50,38,0.25)');
+    g.fillStyle = v; g.fillRect(-540, -440, 1080, 880); g.restore();
+    return cv;
+  }
+  function buildGrid() { // dashed architectural grid: 140px cells centred on x=540, 18 on / 13 off, 2px; visible only in an oval
     const gc = mk(W, H), gg = gc.getContext('2d');
-    gg.strokeStyle = '#D9D5CC'; gg.lineWidth = 2; gg.setLineDash([18, 13]);
-    for (let x = 540 - 140 * 4; x <= W; x += 140) { gg.beginPath(); gg.moveTo(x, 0); gg.lineTo(x, H); gg.stroke(); }
-    for (let y = 905 - 140 * 7; y <= H; y += 140) { gg.beginPath(); gg.moveTo(0, y); gg.lineTo(W, y); gg.stroke(); }
-    gg.setLineDash([]);
-    gg.globalCompositeOperation = 'destination-in';
+    gg.strokeStyle = '#D6D2C8'; gg.lineWidth = 2; gg.setLineDash([18, 13]);
+    for (let x = 540 - 70 - 140 * 3; x <= W; x += 140) { gg.beginPath(); gg.moveTo(x, 0); gg.lineTo(x, H); gg.stroke(); }
+    for (let y = 963 - 140 * 6; y <= H; y += 140) { gg.beginPath(); gg.moveTo(0, y); gg.lineTo(W, y); gg.stroke(); }
+    gg.setLineDash([]); gg.globalCompositeOperation = 'destination-in';
     gg.save(); gg.translate(540, 905); gg.scale(380 / 415, 1);
     const m = gg.createRadialGradient(0, 0, 60, 0, 0, 415); m.addColorStop(0, 'rgba(0,0,0,1)'); m.addColorStop(0.6, 'rgba(0,0,0,0.8)'); m.addColorStop(1, 'rgba(0,0,0,0)');
     gg.fillStyle = m; gg.fillRect(-600, -600, 1200, 1200); gg.restore();
-    g.drawImage(gc, 0, 0);
-    return cv;
+    return gc;
   }
-  const stage = c => { if (!STAGE) STAGE = buildStage(); c.drawImage(STAGE, 0, 0); };
+  // stage(c, blur, zoom): paper + vignette locked; the grid refocuses with the shot and zooms at 0.45x the camera rate
+  function stage(c, blur = 0, zoom = 1) {
+    if (!PAPER) { PAPER = buildPaper(); GRID = buildGrid(); }
+    c.drawImage(PAPER, 0, 0);
+    const gz = 1 + (zoom - 1) * 0.45;
+    c.save(); if (blur > 0.3) c.filter = `blur(${blur.toFixed(2)}px)`;
+    c.translate(540, 905); c.scale(gz, gz); c.translate(-540, -905); c.drawImage(GRID, 0, 0); c.restore();
+  }
 
   // world layer: everything that the virtual camera sees (text + objects), composited with camera + blur
-  const WORLD = mk(W, H).getContext('2d');
+  const WORLD = mk(W, H).getContext('2d'), ACC = mk(W, H).getContext('2d');
   function world(c, cam, fn) {
     const w = WORLD; w.save(); w.setTransform(1, 0, 0, 1, 0, 0); w.clearRect(0, 0, W, H);
     const z = cam.zoom ?? 1, px = cam.px ?? W / 2, py = cam.py ?? H * 0.45;
@@ -42,9 +49,9 @@
     c.save();
     const blur = cam.blur || 0, mb = cam.motionBlur || 0;
     if (mb > 0.5) { // vertical motion blur for the whip: stacked offset copies
-      const n = 28; c.filter = `blur(${Math.min(10, mb / 25).toFixed(1)}px)`;
-      for (let i = 0; i < n; i++) { c.globalAlpha = 1.8 / n; c.drawImage(WORLD.canvas, 0, (i / (n - 1) - 0.5) * mb); }
-      c.globalAlpha = 1; c.filter = 'none';
+      // true vertical-only Gaussian (normalised, keeps opacity): SVG feGaussianBlur stdDeviation="0 σ"
+      document.getElementById('vmbG').setAttribute('stdDeviation', `0 ${(mb / 3).toFixed(1)}`);
+      c.filter = 'url(#vmb)'; c.drawImage(WORLD.canvas, 0, 0); c.filter = 'none';
     } else {
       if (blur > 0.3) c.filter = `blur(${blur.toFixed(2)}px)`;
       c.globalAlpha = cam.alpha ?? 1;
@@ -56,7 +63,7 @@
   function rack(t, cuts, peak = 17) {
     let b = 0;
     for (const tc of cuts) {
-      if (t >= tc - 0.15 && t < tc) b = Math.max(b, peak * E.inQ(prog(t, tc - 0.15, tc)));
+      if (t >= tc - 0.15 && t < tc) b = Math.max(b, peak * E.inQ(prog(t, tc - 0.15, tc - 1 / 30)));
       if (t >= tc && t < tc + 0.18) b = Math.max(b, peak * (1 - E.outC(prog(t, tc, tc + 0.18))));
     }
     return b;
@@ -74,17 +81,17 @@
   function hud(c, t, o = {}) {
     const pal = IMG.palm;
     if (pal && o.palms !== false) {
-      const sway = Math.sin(t * (2 * Math.PI / 1.65)) * 0.07;
+      const sway = Math.sin(t * (2 * Math.PI / 5)) * 0.045;
       c.save(); c.globalAlpha = 0.95; c.filter = 'brightness(0.18)';
       c.translate(-30, -40); c.rotate(-0.25 + sway); c.drawImage(pal, -120, -120, 470, 470); c.restore();
       c.save(); c.globalAlpha = 0.55; c.filter = 'blur(12px) brightness(0.25)';
-      c.translate(W + 40, H - 120); c.rotate(Math.PI * 0.92 - sway * 0.6); c.drawImage(pal, -110, -110, 420, 420); c.restore();
+      c.translate(W + 60, H - 10); c.rotate(Math.PI * 0.92 - sway * 0.6); c.drawImage(pal, -90, -90, 360, 360); c.restore();
     }
     if (o.header !== false) {
       c.save(); c.globalAlpha = o.headerA ?? 1;
       text(c, 'FILMX', W / 2, 172, { fam: 'PlexLatin', w: 500, size: 66, color: INK, dir: 'ltr', ls: '20px' });
       c.fillStyle = COL.gold; c.fillRect(W / 2 - 70, 196, 140, 2);
-      text(c, 'العناية الفاخرة وتخصيص السيارات', W / 2, 232, { fam: 'Plex', w: 500, size: 22, color: COL.gold });
+      text(c, 'العناية الفاخرة وتخصيص السيارات', W / 2, 232, { fam: 'Plex', w: 400, size: 22, color: '#6B665D' });
       c.restore();
     }
   }
@@ -110,7 +117,7 @@
   // pill that unfolds from a 1px line at 14% width (easeOutBack ~+13.7%, settled ~0.45s); height lags width
   function pillUnfold(c, s, cx, cy, t, t0, o = {}) {
     const size = o.size || 42, h = o.h || 78, padX = o.padX ?? 30;
-    const tw = measure(s, { fam: 'Plex', w: o.w || 600, size }) + (o.tick ? 44 : 0);
+    const tw = measure(s, { fam: o.fam || 'Plex', w: o.w || 600, size, dir: o.dir, ls: o.ls }) + (o.tick ? 58 : 0);
     const w = tw + padX * 2;
     const pw = prog(t, t0, t0 + 0.45), ph = prog(t, t0 + 0.05, t0 + 0.5);
     if (pw <= 0) return w;
@@ -121,15 +128,15 @@
     c.shadowColor = 'rgba(25,20,12,0.25)'; c.shadowBlur = 24; c.shadowOffsetY = 6;
     c.fillStyle = o.bg || '#2B2926'; c.beginPath(); c.roundRect(-ww / 2, -hh / 2, ww, hh, Math.min(10, hh / 2)); c.fill();
     c.shadowColor = 'transparent';
-    if (o.gold) { c.strokeStyle = COL.goldL; c.lineWidth = 1.5; c.beginPath(); c.roundRect(-ww / 2 + 5, -hh / 2 + 5, ww - 10, hh - 10, Math.min(7, hh / 2)); c.stroke(); }
+    if (o.gold && hh > 16) { c.save(); c.globalAlpha *= clamp((hh - 16) / 30); c.strokeStyle = COL.goldL; c.lineWidth = 1.5; c.beginPath(); c.roundRect(-ww / 2 + 5, -hh / 2 + 5, ww - 10, hh - 10, Math.min(7, hh / 2)); c.stroke(); c.restore(); }
     const tp = prog(t, t0 + 0.12, t0 + 0.4);
     if (tp > 0 && eh > 0.6) {
       c.beginPath(); c.rect(-ww / 2, -hh / 2, ww, hh); c.clip();
       c.globalAlpha *= tp; c.filter = `blur(${(6 * (1 - tp)).toFixed(2)}px)`;
-      const tx = o.tick ? 22 : 0;
-      text(c, s, tx, size * 0.36, { fam: 'Plex', w: o.w || 600, size, color: o.color || '#EDE9E0' });
+      const tx = o.tick ? 29 : 0;
+      text(c, s, tx, size * 0.36, { fam: o.fam || 'Plex', w: o.w || 600, size, dir: o.dir, ls: o.ls, color: o.color || '#EDE9E0' });
       if (o.tick) { // gold tick at the left end (RTL: end of the line)
-        c.filter = 'none'; c.strokeStyle = COL.goldL; c.lineWidth = 5; c.lineCap = 'round'; c.lineJoin = 'round';
+        c.filter = 'none'; c.strokeStyle = o.gold ? COL.goldL : '#EDE9E0'; c.lineWidth = 5; c.lineCap = 'round'; c.lineJoin = 'round';
         const x0 = -tw / 2 + 4; c.beginPath(); c.moveTo(x0, 0); c.lineTo(x0 + 9, 10); c.lineTo(x0 + 28, -12); c.stroke();
       }
     }
@@ -152,18 +159,22 @@
     const full = measure(s, oo), cur = measure(sub, oo);
     const right = x + full / 2; // anchor so the finished line is centred
     if (n > 0) text(c, sub, right, y, { ...oo, align: 'right' });
-    const blink = n < chars.length || Math.floor((t - t0) * 2.2) % 2 === 0;
-    if (blink && (o.cursorUntil == null || t < o.cursorUntil)) { c.fillStyle = INK; c.fillRect(right - cur - 10 - size * 0.42, y - size * 0.72, size * 0.42, size * 0.86); }
+    const blink = n < chars.length && Math.floor((t - t0) * 12) % 2 === 0;
+    if (blink && (o.cursorUntil == null || t < o.cursorUntil)) { c.fillStyle = o.cursorColor || COL.goldL; c.fillRect(right - cur - 10 - size * 0.5, y - size * 0.62, size * 0.5, size * 0.5); }
   }
   // warm gold light-leak burn (only colour moment): edges creep in, flash, gold wash → charcoal
   function goldBurn(c, t, t0) {
+    // phase 1: amber light leak creeps in from the edges (multiply tint + warm screen glow, reads on ivory paper);
+    // phase 2: warm white flash; phase 3: gold wash thins out over whatever is drawn underneath (the end card).
     const p = prog(t, t0, t0 + 0.9); if (p <= 0 || p >= 1) return;
     c.save();
-    if (p < 0.45) { const q = p / 0.45; const g = c.createRadialGradient(W / 2, H / 2, H * (0.7 - 0.5 * q), W / 2, H / 2, H * 0.85);
-      g.addColorStop(0, 'rgba(201,168,106,0)'); g.addColorStop(0.6, `rgba(201,150,80,${0.5 * q})`); g.addColorStop(1, `rgba(138,90,40,${0.9 * q})`);
-      c.globalCompositeOperation = 'screen'; c.fillStyle = g; c.fillRect(0, 0, W, H); }
-    else if (p < 0.52) { c.fillStyle = 'rgba(253,251,244,0.95)'; c.fillRect(0, 0, W, H); }
-    else { const q = (p - 0.52) / 0.48; c.fillStyle = `rgba(164,118,58,${1 - q})`; c.fillRect(0, 0, W, H); }
+    if (p < 0.45) { const q = E.inQ(p / 0.45);
+      const g = c.createRadialGradient(W / 2, H / 2, H * (0.62 - 0.5 * q), W / 2, H / 2, H * 0.8);
+      g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(0.5, `rgba(214,160,86,${0.55 * q})`); g.addColorStop(1, `rgba(150,96,40,${0.95 * q})`);
+      c.globalCompositeOperation = 'multiply'; c.fillStyle = g; c.fillRect(0, 0, W, H);
+      c.globalCompositeOperation = 'screen'; c.fillStyle = `rgba(255,214,140,${0.35 * q})`; c.fillRect(0, 0, W, H); }
+    else if (p < 0.52) { c.fillStyle = 'rgba(255,246,226,0.96)'; c.fillRect(0, 0, W, H); }
+    else { const q = (p - 0.52) / 0.48; c.fillStyle = `rgba(201,160,96,${Math.pow(1 - q, 1.6)})`; c.fillRect(0, 0, W, H); }
     c.restore();
   }
   const SIL = new Map();
@@ -186,10 +197,37 @@
         c.translate(fx + ox, fy + oy); c.rotate(rot); c.scale(s, s); c.drawImage(sil, -w / 2, -h / 2, w, h); c.restore();
       }
     }
-    if (blur > 0.3) c.filter = `blur(${blur.toFixed(2)}px)`;
+    { const f = (blur > 0.3 ? `blur(${blur.toFixed(2)}px) ` : '') + (o.mono ? 'grayscale(1)' : ''); if (f) c.filter = f; }
     c.translate(fx, fy); c.rotate(rot); c.scale(s, s); c.drawImage(img, -w / 2, -h / 2, w, h);
     if (o.overlay) { c.filter = 'none'; c.translate(-w / 2, -h / 2); c.scale(w / img.width, h / img.height); o.overlay(c, p); } // overlay draws in image-pixel coords
     c.restore();
   }
-  Object.assign(FX, { INK, GREY_GRAD, stage, world, rack, whip, creep, hud, echo, resolve, grey, pillUnfold, strikeWord, typeOn, goldBurn, hero });
+  // dark CTA end card (reference end-card language, FILMX identity): charcoal + faint swirl, wordmark writes on
+  // letter by letter, gold hairline, Arabic positioning line, then CTA rows (resolve), slow pull-back, optional fade to black.
+  function ctaCard(c, t, t0, o = {}) {
+    const p = prog(t, t0, t0 + 0.25); if (p <= 0) return;
+    c.save(); c.globalAlpha = E.outC(p);
+    const g = c.createRadialGradient(W / 2, H * 0.44, 30, W / 2, H * 0.5, H * 0.75); g.addColorStop(0, '#2A2825'); g.addColorStop(1, '#121110');
+    c.fillStyle = g; c.fillRect(0, 0, W, H);
+    c.strokeStyle = 'rgba(255,255,255,0.025)'; c.lineWidth = 2;
+    for (let r = 120; r < 1400; r += 70) { c.beginPath(); c.arc(W / 2, H * 0.46, r + Math.sin(r * 0.01 + t * 0.3) * 6, 0, Math.PI * 2); c.stroke(); }
+    c.restore();
+    const k = Math.max(0, t - t0), z = 1.06 - Math.min(0.06, k * 0.025);
+    c.save(); c.translate(W / 2, H * 0.46); c.scale(z, z); c.translate(-W / 2, -H * 0.46);
+    const letters = [...'FILMX'], size = 150, ls = 46, y = o.y || 800;
+    const lw = letters.map(ch => measure(ch, { fam: 'PlexLatin', w: 500, size, dir: 'ltr' }));
+    const total = lw.reduce((a2, b2) => a2 + b2, 0) + ls * (letters.length - 1);
+    let x = W / 2 - total / 2;
+    letters.forEach((ch, i) => { resolve(c, ch, x + lw[i] / 2, y, t, t0 + 0.15 + i * 0.07 + (h2(i, 7) - 0.5) * 0.04, { fam: 'PlexLatin', w: 500, size, dir: 'ltr', color: '#F4F1EA', dur: 0.32, rise: 0 }); x += lw[i] + ls; });
+    const hp = E.ioC(prog(t, t0 + 0.7, t0 + 1.2));
+    if (hp > 0) { c.fillStyle = COL.goldL; c.fillRect(W / 2 - 160 * hp, y + 52, 320 * hp, 2); }
+    resolve(c, o.tagline || 'دار حماية السيارات الفاخرة في الرياض', W / 2, y + 124, t, o.taglineAt ?? t0 + 0.85, { size: o.taglineSize || 44, w: 500, color: '#D9D4CA', dur: 0.3, rise: 12 });
+    let ry = y + 250;
+    (o.rows || []).forEach((r, i) => { const at = r.at ?? (o.rowsAt ?? t0 + 1.25) + i * 0.22;
+      resolve(c, r.text, W / 2, ry + (r.dy || 0), t, at, { fam: r.fam || 'Plex', size: r.size || 40, w: r.w || 500, color: r.color || '#BDB7AB', dir: r.dir || 'rtl', ls: r.ls, dur: 0.28, rise: 10 });
+      ry += r.gap || 78; });
+    c.restore();
+    if (o.fadeOut) { const q = prog(t, o.fadeOut[0], o.fadeOut[1]); if (q > 0) { c.fillStyle = `rgba(0,0,0,${q})`; c.fillRect(0, 0, W, H); } }
+  }
+  Object.assign(FX, { INK, GREY_GRAD, stage, world, rack, whip, creep, hud, echo, resolve, grey, pillUnfold, strikeWord, typeOn, goldBurn, hero, ctaCard });
 })();

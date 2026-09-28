@@ -1,4 +1,6 @@
 out/*
 !out/FILMX_proto_p*.mp4
+!out/FILMX_V3_30s.mp4
+!out/FILMX_V4_90s.mp4
 node_modules
 __pycache__/

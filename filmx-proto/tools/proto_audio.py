@@ -128,7 +128,7 @@ def music(cfg):
     """Reference-style pulse bed (measured): ~90 BPM, soft shaker on every 8th (>5 kHz), felt pluck on every quarter
     (250-600 Hz), sustained pad under 700 Hz; flat energy, no kick/snare/riser, never ducked."""
     bpm = cfg.get('bpm', 90); beat = 60 / bpm; start = cfg.get('start', 0.0); end = cfg.get('end', DUR)
-    pad_notes = cfg.get('pad', [38, 45, 50, 53, 57])        # D2 A2 D3 F3 A3 (Dm), everything < 700 Hz
+    pad_notes = cfg.get('pad', [57, 62, 65, 69, 74])        # A3 D4 F4 A4 D5 (220-587 Hz): audible on phones, below the VO core
     pluck_seq = cfg.get('pluck', [62, 65, 69, 67, 62, 65, 69, 72])  # D4 F4 A4 G4 ... (293-523 Hz)
     out = np.zeros(N)
     n = int((end - start + 1.5) * SR); tt = np.arange(n) / SR; pad = np.zeros(n)
@@ -136,7 +136,7 @@ def music(cfg):
         for det in (-0.08, 0.07):
             f = m2f(m) * 2 ** (det / 12)
             pad += np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * 2 * f * tt)
-    pad = lp(pad, 700, 4) * np.minimum(1, tt / 0.25) * 0.06
+    pad = hp(lp(pad, 1000, 4), 120) * np.minimum(1, tt / 0.25) * 0.05
     place(out, pad, start)
     k = 0; t = start
     while t < end - 0.02:
@@ -144,7 +144,7 @@ def music(cfg):
         for h in (0, 0.5):  # shaker 8ths, on-beat louder
             m = int(0.12 * SR)
             sh = bp(noise(0.12), 5200, 12000) * env(m, 0.004, 0.035)
-            place(out, sh * (0.30 if h == 0 else 0.17), t + h * beat)
+            place(out, sh * (0.55 if h == 0 else 0.32), t + h * beat)
         k += 1; t += beat
     return out
 
@@ -171,18 +171,48 @@ def hiss_swell():
 SFX.update({'squeegee': squeegee, 'hiss': hiss_swell})
 
 
+def load(path):
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.float32).astype(np.float64)
+
+
+def lufs_norm(x, target):
+    """Normalise a mono stem to an integrated loudness target via ffmpeg loudnorm (linear, two-pass-ish)."""
+    tmp = f'{ROOT}/out/{proto}/_stem.wav'
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f64le', '-ar', str(SR), '-ac', '1', '-i', '-', tmp], input=x.tobytes(), check=True)
+    r = subprocess.run(['ffmpeg', '-v', 'info', '-i', tmp, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    I = float([l for l in r.splitlines() if l.strip().startswith('I:')][-1].split()[1])
+    return x * 10 ** ((target - I) / 20)
+
+
 if __name__ == '__main__':
+    end = int(DUR * SR)
+    vo = np.zeros(N)
+    for v in TL.get('vo', []):
+        x = load(f"{ROOT}/{v['file']}")
+        if v.get('to') is not None:  # trim a take at a natural pause (0.04 s fade so the cut is inaudible)
+            x = x[:int(v['to'] * SR)].copy(); f = int(0.04 * SR); x[-f:] *= np.linspace(1, 0, f)
+        place(vo, x, v['t'], v.get('gain', 1.0))
     fol = np.zeros(N)
     for c in TL.get('sfx', []):
         place(fol, SFX[c['type']](), c['t'], c.get('gain', 1))
     mus = music(TL['music']) if TL.get('music') else np.zeros(N)
-    end = int(DUR * SR)
-    mus[end - int(0.5 * SR):end] *= np.linspace(1, 0, int(0.5 * SR)) ** 1.5
-    mix = fol * 0.55 + mus * TL.get('music', {}).get('gain', 1.0) if TL.get('music') else fol * 0.55
+    if TL.get('fadeOut'):  # music fades with the picture fade, silent 6 frames before black
+        a, b = TL['fadeOut']; ia, ib = int(a * SR), int((b - 0.2) * SR)
+        mus[ia:ib] *= np.linspace(1, 0, ib - ia) ** 1.3; mus[ib:] = 0
+    else:
+        mus[end - int(0.03 * SR):end] *= np.linspace(1, 0, int(0.03 * SR))
+    has_vo = np.abs(vo).max() > 0
+    vo_t = TL.get('voLufs', -15.0)
+    if has_vo: vo = lufs_norm(vo[:end], vo_t)
+    mus = lufs_norm(mus[:end], (vo_t - 11) if has_vo else -25) * TL.get('music', {}).get('gain', 1.0)
+    fol = fol[:end] * (10 ** ((vo_t + 3 - 0) / 20) if False else 1.0)
+    mix = (vo[:end] if has_vo else 0) + mus + fol[:end] * TL.get('sfxGain', 0.12)
     d = int(0.012 * SR)
     L = mix + np.concatenate([np.zeros(d), mus[:-d]]) * 0.08; R = mix - np.concatenate([np.zeros(d), mus[:-d]]) * 0.08
-    st = np.stack([L[:end], R[:end]], 1); st = st / (np.max(np.abs(st)) + 1e-9) * 0.9
+    st = np.stack([L, R], 1)
     raw = f'{ROOT}/out/{proto}/mix_raw.wav'
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f64le', '-ar', str(SR), '-ac', '2', '-i', '-', raw], input=st.tobytes(), check=True)
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', raw, '-af', 'loudnorm=I=-15:TP=-1.5:LRA=9', '-ar', str(SR), f'{ROOT}/out/{proto}/mix.wav'], check=True)
-    print('audio ->', f'out/{proto}/mix.wav')
+    target = -14 if has_vo else -25
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', raw, '-af', f'loudnorm=I={target}:TP=-1.2:LRA=11', '-ar', str(SR), f'{ROOT}/out/{proto}/mix.wav'], check=True)
+    print('audio ->', f'out/{proto}/mix.wav', 'vo' if has_vo else 'bed-only')
