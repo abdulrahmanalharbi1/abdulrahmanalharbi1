@@ -4,3 +4,5 @@ out/*
 !out/FILMX_V4_90s.mp4
 node_modules
 __pycache__/
+!out/FILMX_V3_30s_noVO.mp4
+!out/FILMX_V4_90s_noVO.mp4

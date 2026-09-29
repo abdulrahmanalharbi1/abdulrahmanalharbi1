@@ -216,3 +216,12 @@ if __name__ == '__main__':
     target = -14 if has_vo else -25
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', raw, '-af', f'loudnorm=I={target}:TP=-1.2:LRA=11', '-ar', str(SR), f'{ROOT}/out/{proto}/mix.wav'], check=True)
     print('audio ->', f'out/{proto}/mix.wav', 'vo' if has_vo else 'bed-only')
+    if has_vo:  # M&E stem (music + effects, no VO) at exactly the level it sits under the VO in mix.wav,
+        # so a re-recorded voice at ~-15 LUFS drops in with the same balance
+        r = subprocess.run(['ffmpeg', '-v', 'info', '-i', raw, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+        I = float([l for l in r.splitlines() if l.strip().startswith('I:')][-1].split()[1])
+        me = mus + fol[:end] * TL.get('sfxGain', 0.12)
+        side = np.concatenate([np.zeros(d), mus[:-d]]) * 0.08
+        st = np.stack([me + side, me - side], 1) * 10 ** ((target - I) / 20)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f64le', '-ar', str(SR), '-ac', '2', '-i', '-', f'{ROOT}/out/{proto}/mix_me.wav'], input=st.tobytes(), check=True)
+        print('audio ->', f'out/{proto}/mix_me.wav', 'music + effects')
