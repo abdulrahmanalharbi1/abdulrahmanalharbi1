@@ -1,0 +1,377 @@
+{
+ "folder_id": "ec7fbfdc-5c44-4c37-be93-43304ab4a916",
+ "note": "Full-resolution keyframes/clips are kept out of git (too large); re-download from these URLs or by job_id. previews/ holds 2048px JPEGs.",
+ "assets": [
+  {
+   "local": "keyframes/char_1.png",
+   "job_id": "4fb555ef-3b7d-4e90-8349-a51384859a86",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233712_4fb555ef-3b7d-4e90-8349-a51384859a86.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "CHARACTER REFERENCE (used as image_references for every keyframe)"
+  },
+  {
+   "local": "keyframes/char_2.png",
+   "job_id": "17a651d9-4297-441f-a43c-28daabec7559",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233712_17a651d9-4297-441f-a43c-28daabec7559.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "alt character ref (grey trousers)"
+  },
+  {
+   "local": "keyframes/char_head.png",
+   "job_id": "7ea9b3ba-e49e-4146-8295-b01badaa1e0a",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233713_7ea9b3ba-e49e-4146-8295-b01badaa1e0a.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "rejected: sculpted nose/lips"
+  },
+  {
+   "local": "archival/a11_formation.png",
+   "job_id": "f4f1c670-9a2e-4b07-bc7d-a205f84dde6f",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233739_f4f1c670-9a2e-4b07-bc7d-a205f84dde6f.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "archival B&W helicopters"
+  },
+  {
+   "local": "keyframes/k101_A0a.png",
+   "job_id": "20366974-76f5-49fa-920d-d7f37bae0e33",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234131_20366974-76f5-49fa-920d-d7f37bae0e33.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k102_A0b.png",
+   "job_id": "641f1220-61ea-48ad-9f72-3f2bbe2d11a8",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234131_641f1220-61ea-48ad-9f72-3f2bbe2d11a8.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k103_A1a.png",
+   "job_id": "d63d1845-7aae-42b4-8dbc-732703057aa9",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234131_d63d1845-7aae-42b4-8dbc-732703057aa9.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k104_A1b.png",
+   "job_id": "bed20b63-7e8c-45dd-a363-c0734e2da6c1",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234131_bed20b63-7e8c-45dd-a363-c0734e2da6c1.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k105_B.png",
+   "job_id": "586d1ecb-7b26-4b47-a381-88bed3794fe5",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234131_586d1ecb-7b26-4b47-a381-88bed3794fe5.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k106_C0a.png",
+   "job_id": "bbbad6d3-1179-4e40-8927-cea14020999a",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234131_bbbad6d3-1179-4e40-8927-cea14020999a.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k107_C0b.png",
+   "job_id": "85236684-8412-4ffe-908a-afad6ae3f5c2",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234131_85236684-8412-4ffe-908a-afad6ae3f5c2.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k108_C1.png",
+   "job_id": "896d6cf8-d249-4224-bf64-bfc172075fd1",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234131_896d6cf8-d249-4224-bf64-bfc172075fd1.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k109_D0a.png",
+   "job_id": "7ec180b9-4b0c-488d-8262-f75096c0845a",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_7ec180b9-4b0c-488d-8262-f75096c0845a.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k110_D0b.png",
+   "job_id": "204ddedf-8c0c-48fa-afe5-ca4757c4385e",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_204ddedf-8c0c-48fa-afe5-ca4757c4385e.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k111_E0a.png",
+   "job_id": "ebd4b3b1-39e4-4a56-9b83-390c85f00028",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_ebd4b3b1-39e4-4a56-9b83-390c85f00028.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k112_E0b.png",
+   "job_id": "f5bf2139-a4ee-41e9-9642-6ea3724be387",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_f5bf2139-a4ee-41e9-9642-6ea3724be387.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k113_EF0.png",
+   "job_id": "47b399df-49e1-43e1-a534-c57655df3fb2",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_47b399df-49e1-43e1-a534-c57655df3fb2.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k114_EF1.png",
+   "job_id": "22d0719a-60d9-4e56-82c7-bad8cc84a5bb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_22d0719a-60d9-4e56-82c7-bad8cc84a5bb.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k115_F0a.png",
+   "job_id": "d625c49a-ca87-4c0a-a70b-f224ba381cb2",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_d625c49a-ca87-4c0a-a70b-f224ba381cb2.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k116_F0b.png",
+   "job_id": "98f0c0a6-bd51-47e5-8748-b1febb08a5d4",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_98f0c0a6-bd51-47e5-8748-b1febb08a5d4.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k117_G0.png",
+   "job_id": "151dcaba-0dbc-4552-ac0b-3980ea6b8fb0",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_151dcaba-0dbc-4552-ac0b-3980ea6b8fb0.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k118_E1.png",
+   "job_id": "9a72b779-9dae-4af8-8386-88b4699252cd",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_9a72b779-9dae-4af8-8386-88b4699252cd.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "keyframes/k119_end.png",
+   "job_id": "8de3e7cf-e9f8-4de0-95e8-da0b95b13fc4",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234211_8de3e7cf-e9f8-4de0-95e8-da0b95b13fc4.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": ""
+  },
+  {
+   "local": "vo/s_01.mp3",
+   "job_id": "2ae02f64-bf43-47dc-b29d-6db234eadec4",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234050_2ae02f64-bf43-47dc-b29d-6db234eadec4.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "vo/s_02.mp3",
+   "job_id": "afa02c24-3895-43d5-84ea-2f2284d1a95e",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234050_afa02c24-3895-43d5-84ea-2f2284d1a95e.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "vo/s_03.mp3",
+   "job_id": "c8443007-6b8a-44c3-9f3e-e5f07f7493a8",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234051_c8443007-6b8a-44c3-9f3e-e5f07f7493a8.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "vo/s_04.mp3",
+   "job_id": "c10d9563-9026-497a-be09-67a1cb176f67",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234051_c10d9563-9026-497a-be09-67a1cb176f67.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "vo/s_05.mp3",
+   "job_id": "8869910c-02da-4167-836a-20ace8b10bce",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234050_8869910c-02da-4167-836a-20ace8b10bce.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "vo/s_06.mp3",
+   "job_id": "02b5bc8e-fcd2-4e43-a154-280f40951286",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234051_02b5bc8e-fcd2-4e43-a154-280f40951286.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "vo/s_07.mp3",
+   "job_id": "6700c5d2-ead3-4e15-b64a-9762879cac3d",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234050_6700c5d2-ead3-4e15-b64a-9762879cac3d.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "vo/s_08.mp3",
+   "job_id": "71b22362-c295-4c6b-8b3c-62793deb8552",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234050_71b22362-c295-4c6b-8b3c-62793deb8552.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "vo/s_09.mp3",
+   "job_id": "ef7ef517-8829-4d53-b8a3-492e4123f80f",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234050_ef7ef517-8829-4d53-b8a3-492e4123f80f.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": ""
+  },
+  {
+   "local": "archival/a12_mechanics.png",
+   "job_id": "62ebc060-42aa-4d77-8a9e-ab235383f95c",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233739_62ebc060-42aa-4d77-8a9e-ab235383f95c.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "archival collage source"
+  },
+  {
+   "local": "archival/a13_blade.png",
+   "job_id": "f2999ad5-6b8d-4928-8644-c04c67c32111",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233739_f2999ad5-6b8d-4928-8644-c04c67c32111.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "archival collage source"
+  },
+  {
+   "local": "archival/a14_lab.png",
+   "job_id": "b14f2659-bf5e-43c6-a687-e8bb70c7e32b",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233739_b14f2659-bf5e-43c6-a687-e8bb70c7e32b.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "archival collage source"
+  },
+  {
+   "local": "archival/a15_race.png",
+   "job_id": "dd44c25c-cbf8-42a5-ac4d-742356862cc3",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233739_dd44c25c-cbf8-42a5-ac4d-742356862cc3.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "archival collage source"
+  },
+  {
+   "local": "archival/a16_newspaper.png",
+   "job_id": "f691396a-3c60-4f0c-a03d-684847180158",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_233739_f691396a-3c60-4f0c-a03d-684847180158.png",
+   "kind": "image nano_banana_pro 4k",
+   "note": "archival collage source"
+  },
+  {
+   "local": "clips/bake_kling4k.mp4",
+   "job_id": "ea129765-b6fd-46a7-8291-9a110dd4b8c5",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234510_ea129765-b6fd-46a7-8291-9a110dd4b8c5.mp4",
+   "kind": "video kling3_0 4k 10s (60 cr)",
+   "note": "bake-off shot A: 3856x2148, smooth dolly-in, head stays featureless"
+  },
+  {
+   "local": "clips/bake_veo31.mp4",
+   "job_id": "19287b90-22fb-4b03-8cd3-f7504e23146b",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234511_19287b90-22fb-4b03-8cd3-f7504e23146b.mp4",
+   "kind": "video veo3_1 preview high 8s (80 cr)",
+   "note": "bake-off shot A: 1920x1080, stronger push-in, good acting"
+  },
+  {
+   "local": "clips/bake_cs30.mp4",
+   "job_id": "f5f3d76d-e2cb-42ec-b578-4013e8e24de1",
+   "url": null,
+   "kind": "video cinematic_studio_3_0 720p 8s (40 cr)",
+   "note": "bake-off shot A: not yet retrieved"
+  },
+  {
+   "local": "clips/bake_seedance20.mp4",
+   "job_id": "3923d285-505f-4464-875a-efa033d35f92",
+   "url": null,
+   "kind": "video seedance_2_0 1080p 8s (72 cr)",
+   "note": "bake-off shot A: not yet retrieved"
+  },
+  {
+   "local": "vo/t_op_a.mp3",
+   "job_id": "de69ac37-0d08-4a50-9294-5adc4584b5d8",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_op_b.mp3",
+   "job_id": "9b4022e3-c481-4ed2-92da-f96884970197",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_army_a.mp3",
+   "job_id": "edf15dc9-b435-44ae-933e-ace8e247d3a9",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_army_b.mp3",
+   "job_id": "08cd8054-4929-45dd-bef2-f42f2a86970d",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_urethane_a.mp3",
+   "job_id": "9a3ddd33-46ea-4aab-9610-8863ca579780",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_urethane_b.mp3",
+   "job_id": "8368be97-53f4-487d-a6bb-0f59d828d2d3",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_race_a.mp3",
+   "job_id": "0fa4b0e0-48dd-4f9d-87cf-108585be4434",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_race_b.mp3",
+   "job_id": "a34ddee8-364f-44af-87c6-123fc645be10",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_today_a.mp3",
+   "job_id": "459ff93c-1840-418c-b133-62f5a47bdab8",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_today_b.mp3",
+   "job_id": "e822b717-894f-40b1-8738-16eb6103596b",
+   "url": null,
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_filmx_a.mp3",
+   "job_id": "c9835578-e256-495e-9753-388073d7abbb",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234911_c9835578-e256-495e-9753-388073d7abbb.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  },
+  {
+   "local": "vo/t_filmx_b.mp3",
+   "job_id": "6fdaf139-23cc-4c00-af0d-840d208ce12a",
+   "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FRVZ10bqvso77s2arDmDKwgr6l/hf_20260930_234912_6fdaf139-23cc-4c00-af0d-840d208ce12a.mp3",
+   "kind": "audio text2speech_v2 elevenlabs Ken",
+   "note": "tighter script take (see STORYBOARD)"
+  }
+ ]
+}

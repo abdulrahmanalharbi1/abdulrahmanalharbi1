@@ -1,0 +1,7 @@
+# full-resolution generations live in Higgsfield (see assets_manifest.json); previews/ holds 2048px copies
+keyframes/*.png
+archival/*.png
+clips/
+work/
+out/*
+!out/*.mp4
